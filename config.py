@@ -111,10 +111,10 @@ for i in groups:
         ]
     )
 
-layout_theme = {"border_width": 10,
+layout_theme = {"border_width": 3,
                 "margin": 8,
-                "border_focus": "#d75f5f",
-                "border_normal": "#8f3d3d",
+                "border_focus": "#5e81ac",
+                "border_normal": "#3b4252",
                 }
 
 layouts = [
@@ -164,8 +164,15 @@ screens = [
         top=bar.Bar(
             [
                 widget.GroupBox(
-                    highlight_method='block',
-                    disable_drag='True'
+                    highlight_method='line',
+                    disable_drag='True',
+                    #background="#5e81ac",
+                    highlight_color="#5e81ac",
+                    this_screen_border="#5294e2",
+                    this_current_screen_border="#5294e2",
+                    active="#ffffff",
+                    inactive="#848e96",
+                    background="#2f343f"
                     ),
                 widget.Sep(padding=10),
                 widget.CurrentLayout(),
@@ -177,20 +184,14 @@ screens = [
                 widget.Sep(padding=10),
                 # NB Systray is incompatible with Wayland, consider using StatusNotifier instead
                 # widget.StatusNotifier(),
-                widget.Pomodoro(prefix_inactive="Start"),
-                widget.Sep(padding=10),
                 widget.Volume(),
                 widget.Sep(padding=10),
                 widget.Clock(format="%a, %d de %b de %Y - %H:%M"),
                 widget.Sep(padding=10),
                 widget.Systray(),
-                widget.Sep(padding=10),
-                widget.QuickExit(
-                    default_text='[ X ]',
-                    countdown_format='[ {} ],'
-                ),
             ],
             24,
+            background="#2e3440"
             # border_width=[2, 0, 2, 0],  # Draw top and bottom borders_focus_stack
             # border_color=["ff00ff", "000000", "ff00ff", "000000"]  # Borders are magenta
         ),
